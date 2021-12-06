@@ -1,11 +1,6 @@
-import copy
-
 def read_file(filename):
   with open(filename, 'r') as f:
-    rtn = []
-    for num in f.read().split(","):
-      rtn.append(int(num))
-    return rtn
+    return [int(num) for num in f.read().split(",")]
 
 def find_fish(fishes):
   total = 0
@@ -15,9 +10,9 @@ def find_fish(fishes):
 
 # This isn't the most memory efficient solution, but it do be runnin fast
 def part1(input, num_days):
-  fishes = dict([(8,0),(7,0),(6,0),(5,0),(4,0),(3,0),(2,0),(1,0),(0,0)])
-  delta_fishes = dict([(8,0),(7,0),(6,0),(5,0),(4,0),(3,0),(2,0),(1,0),(0,0)])
-  for fish in input:
+  fishes = dict.fromkeys(range(0,9), 0)
+  delta_fishes = dict.fromkeys(range(0,9), 0)
+  for fish in input:  # add initial values
     fishes[fish] = fishes[fish] + 1
 
   for day in range(1, num_days+1):
@@ -27,8 +22,8 @@ def part1(input, num_days):
       elif k == 0 and v > 0:
         delta_fishes[6] = delta_fishes[6] + v
         delta_fishes[8] = delta_fishes[8] + v
-    fishes = copy.deepcopy(delta_fishes)  # then at the end of the day, apply the changes
-    delta_fishes = dict([(8,0),(7,0),(6,0),(5,0),(4,0),(3,0),(2,0),(1,0),(0,0)])
+    fishes = delta_fishes  # then at the end of the day, apply the changes
+    delta_fishes = dict.fromkeys(range(0,9), 0)
   print("Number of fishes:", find_fish(fishes))
 
 def main():
