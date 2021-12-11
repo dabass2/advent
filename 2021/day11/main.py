@@ -4,7 +4,7 @@ def read_file(filename):
 
 def flash(i, j, grid, flashed, num_flahses=None):
   adjs = [(-1,0),(0,-1),(1,0),(0,1),(-1,-1),(-1,1),(1,-1),(1,1)]
-  for adj in adjs:
+  for adj in adjs:  # loop through every adjacent point (as long as not flashed and in bounds) and increment it
     if i+adj[0] >= 0 and j+adj[1] >= 0 and i+adj[0] < len(grid[0]) and \
         j+adj[1] < len(grid[0]) and (i+adj[0],j+adj[1]) not in flashed:
       if grid[i+adj[0]][j+adj[1]] == 9:
