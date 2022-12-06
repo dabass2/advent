@@ -6,5 +6,5 @@ do
   mkdir ./day$i
   touch ./day$i/test.file
   touch ./day$i/input.file
-  cp ../template.py ./day$i/
+  cp ../main.py ./day$i/
 done
