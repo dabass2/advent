@@ -1,21 +1,25 @@
 def read_file(filename):
   with open(filename, 'r') as f:
-    return f.read().splitlines()
+    return f.read().splitlines()[0]
 
-def part1(input):
-  return
-
-def part2(input):
+def solve(input, str_len=4):
+  seq = input[:str_len]
+  for i, c in enumerate(list(input)):
+    if len(set(seq)) < str_len:
+      seq = seq[1:] + c
+    else:
+      print(i)
+      break
   return
 
 def main():
-  input = read_file('test.file')
+  input = read_file('input.file')
   print("-----------------")
   print("Running part 1...")
-  part1(input)
+  solve(input)
   print("-----------------")
   print("Running part 2...")
-  part2(input)
+  solve(input, 14)
   print("-----------------")
 
 main()
