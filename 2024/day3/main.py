@@ -3,7 +3,8 @@ def read_file(filename):
         return f.read().splitlines()
 
 
-def part1(input):
+def part1(cmds):
+    print(cmds)
     return
 
 
@@ -17,9 +18,9 @@ def main():
     print("Running part 1...")
     part1(input)
     print("-----------------")
-    print("Running part 2...")
-    part2(input)
-    print("-----------------")
+    # print("Running part 2...")
+    # part2(input)
+    # print("-----------------")
 
 
 main()
