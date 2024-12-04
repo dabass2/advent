@@ -33,9 +33,9 @@ def part2(cmd):
 
 def main():
     input = read_file("input.file")
-    # print("-----------------")
-    # print("Running part 1...")
-    # part1(input)
+    print("-----------------")
+    print("Running part 1...")
+    part1(input)
     print("-----------------")
     print("Running part 2...")
     part2(input)
